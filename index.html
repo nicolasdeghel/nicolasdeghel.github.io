@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Nicolas Al Deghel, web developer and engineering student in Lebanon. Mobile-first websites, digital menus and full-stack web apps.">
+<title>Nicolas Al Deghel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0}
+:root{
+  --bg:#EEF1EC; --surface:#FAFBF8; --ink:#16211C; --muted:#56635C; --line:#CDD5CE;
+  --copper:#B4602A; --leaf:#2E6A4E; --screen:#1B2621; --screen-ink:#E6EEE8;
+  --display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111814; --surface:#18211C; --ink:#E4EBE6; --muted:#9BA9A1; --line:#2C3832;
+    --copper:#E08A52; --leaf:#6BBF94; --screen:#0B100D; --screen-ink:#DDE7E1; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111814; --surface:#18211C; --ink:#E4EBE6; --muted:#9BA9A1; --line:#2C3832;
+  --copper:#E08A52; --leaf:#6BBF94; --screen:#0B100D; --screen-ink:#DDE7E1; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);padding-inline:20px;padding-block:0}
+.wrap{max-width:1040px;margin:0 auto}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--copper);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08}
+.label{font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* header */
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.mark{font:700 17px/1 var(--display)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{font:500 14px/1 var(--body);text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+/* intro */
+.intro{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;padding-block:64px 56px;align-items:end}
+.intro h1{font-size:clamp(40px,6.4vw,76px);font-weight:700;letter-spacing:-.02em}
+.intro h1 span{color:var(--copper)}
+.intro p{max-width:34em;color:var(--muted);font-size:18px;margin:20px 0 0}
+.status{display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--line);padding-left:24px}
+.status div{display:flex;flex-direction:column;gap:6px}
+.status b{font:500 15px/1.4 var(--body)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--leaf);margin-right:8px;vertical-align:1px}
+
+/* work */
+section{padding-block:56px;border-top:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:36px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(28px,3.6vw,40px);font-weight:700}
+.case{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:center;padding-block:36px}
+.case + .case{border-top:1px dashed var(--line)}
+.case:nth-child(even) .visual{order:-1}
+.case h3{font-size:clamp(24px,2.8vw,32px);font-weight:700;margin:10px 0 12px}
+.case p{margin:0 0 14px;max-width:32em}
+.case ul{margin:0 0 18px;padding-left:18px;color:var(--muted)}
+.case li{margin-bottom:6px}
+.stack{display:flex;flex-wrap:wrap;gap:8px}
+.stack span{font:500 12px/1 var(--mono);padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.note{font:400 12px/1.4 var(--mono);color:var(--muted);margin-top:10px}
+
+/* visuals: CSS-built interface sketches */
+.visual{display:flex;justify-content:center}
+.browser{width:100%;max-width:460px;background:var(--screen);border-radius:12px;overflow:hidden;box-shadow:0 18px 40px -22px rgba(0,0,0,.45)}
+.bar{display:flex;gap:6px;align-items:center;padding:10px 12px;background:rgba(255,255,255,.06)}
+.bar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.22)}
+.bar em{margin-left:10px;font:400 11px/1 var(--mono);color:rgba(255,255,255,.55);font-style:normal}
+.scr{padding:18px;color:var(--screen-ink);font-family:var(--body)}
+
+/* workout sketch */
+.wk-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.wk-top b{font:700 18px/1 var(--display)}
+.pill{font:500 11px/1 var(--mono);padding:6px 9px;border-radius:999px;background:#E08A52;color:#1B1208}
+.wk-row{display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.09);font-size:13px}
+.wk-row span:not(:first-child){font-family:var(--mono);color:rgba(230,238,232,.7);font-variant-numeric:tabular-nums}
+.wk-row .done{color:#6BBF94}
+
+/* phone menu sketch */
+.phone{width:230px;background:var(--screen);border-radius:30px;padding:12px;box-shadow:0 18px 40px -22px rgba(0,0,0,.45)}
+.phone .scr{background:#F6F1E8;color:#2A1D14;border-radius:20px;padding:16px 14px;min-height:400px}
+.menu-h{font:700 20px/1.05 var(--display);margin-bottom:4px}
+.menu-sub{font:400 11px/1 var(--mono);color:#8A6C55;margin-bottom:14px}
+.tabs{display:flex;gap:6px;margin-bottom:12px}
+.tabs span{font:500 10px/1 var(--mono);padding:6px 8px;border-radius:999px;border:1px solid #D8C9B6}
+.tabs span:first-child{background:#2A1D14;color:#F6F1E8;border-color:#2A1D14}
+.item{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #E6DBCB;font-size:12px}
+.item small{display:block;color:#8A6C55;font-size:10px;margin-top:2px}
+.item b{font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
+
+/* sensor dashboard sketch */
+.gauges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.g{background:rgba(255,255,255,.05);border-radius:8px;padding:10px}
+.g small{display:block;font:500 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:rgba(230,238,232,.6);margin-bottom:8px}
+.g b{font:700 20px/1 var(--display);font-variant-numeric:tabular-nums}
+.g b sup{font:400 11px var(--mono);color:rgba(230,238,232,.6);margin-left:2px}
+.chart{height:110px;border-radius:8px;background:rgba(255,255,255,.04);padding:8px}
+.chart svg{width:100%;height:100%;display:block}
+
+/* about + skills */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.about p{margin:0 0 14px;max-width:34em}
+.skills{display:grid;gap:18px}
+.skills div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.skills dt{font:500 12px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.skills dd{margin:0}
+
+/* contact */
+.contact{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap}
+.contact h2{font-size:clamp(30px,4.4vw,52px);font-weight:700;max-width:14em}
+.links{display:flex;flex-direction:column;gap:12px;min-width:0}
+.links .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.links code{font:500 15px/1.3 var(--mono);color:var(--ink);word-break:break-all}
+.copy{font:500 12px/1 var(--mono);background:transparent;color:var(--copper);border:1px solid var(--copper);border-radius:999px;padding:7px 11px;cursor:pointer}
+.copy:hover{background:var(--copper);color:var(--surface)}
+footer{padding-block:28px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:56px}
+
+@media (max-width:820px){
+  .intro,.case,.about{grid-template-columns:1fr;gap:28px}
+  .case:nth-child(even) .visual{order:0}
+  .status{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:20px}
+  .intro{padding-block:40px}
+}
+@media (max-width:420px){
+  .skills div{grid-template-columns:1fr;gap:4px}
+  .gauges{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:no-preference){
+  .browser,.phone{transition:transform .35s ease}
+  .case:hover .browser,.case:hover .phone{transform:translateY(-4px)}
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="mark">Nicolas Al Deghel</div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="intro">
+    <div>
+      <p class="label">Web developer · CCE engineering student</p>
+      <h1>I build websites that work on the phone <span>first</span>.</h1>
+      <p>Responsive sites and digital menus for small businesses, full-stack web apps, and the Python backends behind IoT sensor data. Based in Lebanon, working remotely in English and Arabic.</p>
+    </div>
+    <div class="status">
+      <div><span class="label">Availability</span><b><span class="dot"></span>Part-time, remote, freelance</b></div>
+      <div><span class="label">Languages</span><b>Arabic (native) · English (fluent)</b></div>
+      <div><span class="label">Studying</span><b>B.E. Computer &amp; Communication Engineering, NDU, class of 2029</b></div>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <span class="label">3 projects · 2026</span>
+    </div>
+
+    <article class="case">
+      <div>
+        <span class="label">Freelance · Mobile-first web</span>
+        <h3>Digital menus &amp; websites for local businesses</h3>
+        <p>Restaurants and shops in Lebanon need menus customers can open from a QR code on a table, on any phone, with no app to install.</p>
+        <ul>
+          <li>Category tabs so a long menu stays easy to scan on a small screen</li>
+          <li>Clear hierarchy: dish name, short description, price aligned in one column</li>
+          <li>Hand-built in HTML, CSS and JavaScript, deployed and handed over ready to update</li>
+        </ul>
+        <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive layout</span></div>
+      </div>
+      <div class="visual">
+        <div class="phone" aria-label="Sketch of a mobile digital menu layout">
+          <div class="scr">
+            <div class="menu-h">Menu</div>
+            <div class="menu-sub">Scan · browse · order</div>
+            <div class="tabs"><span>Mains</span><span>Mezze</span><span>Drinks</span></div>
+            <div class="item"><div>Chicken shawarma plate<small>Garlic sauce, pickles, fries</small></div><b>$9</b></div>
+            <div class="item"><div>Mixed grill<small>Kafta, taouk, lamb</small></div><b>$14</b></div>
+            <div class="item"><div>Fattoush<small>Sumac, pomegranate molasses</small></div><b>$6</b></div>
+            <div class="item"><div>Manakish zaatar<small>Fresh from the oven</small></div><b>$3</b></div>
+            <div class="item"><div>Fresh lemonade<small>With mint</small></div><b>$3</b></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div>
+        <span class="label">Personal project · Full-stack</span>
+        <h3>Workout Planner web app</h3>
+        <p>A fitness tracker I built, deployed and then redesigned after using it myself every week.</p>
+        <ul>
+          <li>Node.js backend with a custom API connected to the Google Sheets API to log and read workouts</li>
+          <li>Hosted live on Render</li>
+          <li>Pivoted to a mobile-optimised interface with embedded exercise videos after real use showed the desktop layout didn't fit the gym</li>
+        </ul>
+        <div class="stack"><span>Node.js</span><span>JavaScript</span><span>Google Sheets API</span><span>Render</span><span>Git</span></div>
+      </div>
+      <div class="visual">
+        <div class="browser" aria-label="Sketch of the workout planner interface">
+          <div class="bar"><i></i><i></i><i></i><em>workout-planner · Render</em></div>
+          <div class="scr">
+            <div class="wk-top"><b>Push day</b><span class="pill">Week 6</span></div>
+            <div class="wk-row"><span>Bench press</span><span>4 × 8</span><span class="done">✓ logged</span></div>
+            <div class="wk-row"><span>Overhead press</span><span>3 × 10</span><span class="done">✓ logged</span></div>
+            <div class="wk-row"><span>Incline dumbbell</span><span>3 × 12</span><span>pending</span></div>
+            <div class="wk-row"><span>Triceps dips</span><span>3 × max</span><span>pending</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div>
+        <span class="label">Greenovators LB · Co-founder &amp; technical lead</span>
+        <h3>AI + IoT farm monitoring</h3>
+        <p>An agritech venture that took <strong>2nd place at the AUF Regional Hackathon</strong>. Sensors in the field send readings; the software turns them into something a farmer can act on.</p>
+        <ul>
+          <li>Low-power sensor arrays for soil moisture, temperature and nutrients</li>
+          <li>Python backend and data pipeline from raw readings to predictive insights</li>
+          <li>Led brand identity and the Lean Business Model Canvas in a pre-accelerator program</li>
+        </ul>
+        <div class="stack"><span>Python</span><span>IoT</span><span>Data pipeline</span><span>Circuit prototyping</span></div>
+      </div>
+      <div class="visual">
+        <div class="browser" aria-label="Sketch of the sensor dashboard">
+          <div class="bar"><i></i><i></i><i></i><em>field dashboard · plot A</em></div>
+          <div class="scr">
+            <div class="gauges">
+              <div class="g"><small>Soil moisture</small><b>31<sup>%</sup></b></div>
+              <div class="g"><small>Soil temp</small><b>22<sup>°C</sup></b></div>
+              <div class="g"><small>Nitrogen</small><b>OK</b></div>
+            </div>
+            <div class="chart">
+              <svg viewBox="0 0 300 90" preserveAspectRatio="none" aria-hidden="true">
+                <g stroke="rgba(255,255,255,.08)" stroke-width="1" fill="none">
+                  <line x1="0" y1="22" x2="300" y2="22"/><line x1="0" y1="45" x2="300" y2="45"/><line x1="0" y1="68" x2="300" y2="68"/>
+                </g>
+                <path d="M0 30 L30 34 L60 40 L90 47 L120 53 L150 58 L180 62 L210 30 L240 33 L270 38 L300 42 L300 90 L0 90 Z" fill="rgba(107,191,148,.16)"/>
+                <path d="M0 30 L30 34 L60 40 L90 47 L120 53 L150 58 L180 62 L210 30 L240 33 L270 38 L300 42" fill="none" stroke="#6BBF94" stroke-width="2"/>
+                <circle cx="300" cy="42" r="3.5" fill="#6BBF94"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <p class="note">Interface sketches above are simplified illustrations of each project's layout.</p>
+  </section>
+
+  <section id="about">
+    <div class="sec-head"><h2>About</h2></div>
+    <div class="about">
+      <div>
+        <p>I'm a Computer and Communication Engineering student at Notre Dame University – Louaize. I like building things end to end: the layout a customer taps on, the API behind it, and sometimes the circuit that produces the data.</p>
+        <p>I've also tutored university students through technical projects, which taught me to explain complex work in clear steps. Outside of code I'm training as a Lebanese Red Cross first responder.</p>
+      </div>
+      <dl class="skills">
+        <div><dt>Front-end</dt><dd>HTML, CSS, JavaScript, responsive and mobile-first layout</dd></div>
+        <div><dt>Back-end</dt><dd>Node.js, Python, REST API design, Google Sheets API</dd></div>
+        <div><dt>Tools</dt><dd>Git &amp; GitHub, Render deployment, Advanced Excel</dd></div>
+        <div><dt>Hardware</dt><dd>IoT sensors, circuit design, C/C++, MATLAB/Simulink</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Need a site that works on every phone? Get in touch.</h2>
+      <div class="links">
+        <span class="label">Email</span>
+        <div class="row"><code id="email">nsdeghel@gmail.com</code><button class="copy" id="copy-email" type="button">Copy</button></div>
+        <span class="label">LinkedIn</span>
+        <div class="row"><a href="https://www.linkedin.com/in/nicolas-al-deghel-96a77a342"><code>linkedin.com/in/nicolas-al-deghel</code></a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Nicolas Al Deghel · Lebanon · Available for remote work</footer>
+</div>
+
+<script>
+document.getElementById('copy-email').addEventListener('click', function(){
+  var btn=this, txt=document.getElementById('email').textContent;
+  function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1600);}
+  function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';}
+  try{navigator.clipboard.writeText(txt).then(done,fallback);}catch(e){fallback();}
+});
+</script>
+</body>
+</html>
