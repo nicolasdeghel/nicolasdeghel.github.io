@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Eatery Menu — Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap">
+<style>
+:root{--bg:#f4f0e8;--card:#fbf9f5;--ink:#22303c;--muted:#7d8791;--line:#e2dccf;--accent:#b5523b;
+  --serif:"Cormorant Garamond", Georgia, serif;--sans:"Jost", "Helvetica Neue", Arial, sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--sans)}
+.demo-flag{position:sticky;top:0;z-index:20;background:#c8102e;color:#fff;text-align:center;font:500 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:8px 10px}
+.demo-flag a{color:#fff}
+header{text-align:center;padding:44px 20px 24px}
+header small{display:block;font:500 11px/1 var(--sans);letter-spacing:.4em;color:var(--muted)}
+header h1{font:500 clamp(36px,8vw,48px)/1 var(--serif);letter-spacing:.24em;margin:10px 0 8px;padding-left:.24em}
+header .sub{font:500 11px/1 var(--sans);letter-spacing:.32em;color:var(--accent)}
+nav{position:sticky;top:27px;z-index:10;background:rgba(244,240,232,.94);backdrop-filter:blur(6px);display:flex;justify-content:safe center;gap:8px;padding:12px 16px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line)}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:none;font:500 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:10px 14px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+main{max-width:620px;margin:0 auto;padding:10px 18px 40px}
+.title{text-align:center;font:500 13px/1 var(--sans);letter-spacing:.5em;color:var(--muted);margin:26px 0 6px}
+.title + .orn{display:block;margin:0 auto 18px;width:220px;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+h2{display:flex;align-items:center;gap:12px;font:500 12px/1 var(--sans);letter-spacing:.3em;margin:28px 0 14px}
+h2::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+.card .top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.card b{font:600 19px/1.15 var(--serif)}
+.card span{font:500 14px/1 var(--sans);color:var(--accent);font-variant-numeric:tabular-nums}
+.card p{margin:4px 0 0;font-size:12.5px;color:var(--muted)}
+.card.wide{grid-column:1/-1}
+.small .card b{font-size:17px}
+footer{text-align:center;font:500 11px/2 var(--sans);letter-spacing:.24em;color:var(--muted);padding:20px 16px 40px;border-top:1px solid var(--line);max-width:620px;margin:0 auto}
+@media (max-width:480px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demo-flag">Demo menu · fictional restaurant</div>
+<header>
+  <small>THE</small>
+  <h1>EATERY</h1>
+  <div class="sub">BAR · DELI · KITCHEN</div>
+</header>
+<nav id="tabs" role="tablist" aria-label="Menu sections"></nav>
+<main id="panel" role="tabpanel"></main>
+<footer>PRICES IN USD<br>DEMO MENU DESIGNED &amp; BUILT BY NICOLAS AL DEGHEL</footer>
+<script>
+const M = [
+ {t:"To start",groups:[
+  ["Bowls & dips",[["Tapenade","Black olives, capers, extra virgin olive oil",4],["Chips Bowl","Light truffle dip",6],["Tarama","Cod roe, citrus, togarashi",10],["Sautéed Mushrooms","Wild mushrooms, fresh thyme",11],["Spinach","Creamed spinach, aged parmigiano",12]]],
+  ["Appetizers",[["Frites","Crisp fries, sea salt flakes",6],["Edamame","Soybeans, fleur de sel",7],["Padrón Peppers","Roasted green peppers, chili miso",12],["Feta Filo","2 pcs · Whipped feta, thyme, sweet chili",13],["Tuna Brioche","2 pcs · Raw tuna, wasabi mayo, ginger",14],["Shrimp Rolls","2 pcs · Shrimp, gochujang",14],["Tuna Tataki","Raw tuna, shiso, ponzu yuzu",19]]],
+  ["Carpaccios",[["Smoked Salmon","Smoked salmon, ponzu yuzu",19],["Octopus","Octopus, yuzu, furikake",20],["Wagyu","Wagyu tenderloin, basil pesto, balsamic",21]]]]},
+ {t:"Salads & light",groups:[
+  ["Salads",[["Green","Baby spinach, coriander, avocado, sucrine, pumpkin seeds",16],["Chèvre Chaud","Baked goat cheese, mesclun, figs, pecans, raspberry balsamic",18],["Burrata","Burrata, cherry tomatoes, olive powder, microgreens",19],["Chicken Caesar","Chicken breast, sucrine, aged parmigiano",19],["Niçoise","Tuna, sucrine, olives, sweet potato, tomatoes, egg",22]]],
+  ["Open sandwiches",[["Tuna Avocado","Tuna, chives, capers, avocado, sourdough",14],["Roast Beef & Manchego","Slow-roasted beef, truffle manchego, sourdough",18],["Smoked Salmon","Smoked salmon, avocado, peppercorn, sourdough",19]]],
+  ["Pizzettes",[["Traditional","Mozzarella, mushrooms, tomato sauce",14],["Goat","Goat cheese, honey, walnuts",16],["Bresaola","Bresaola, parmigiano, sun-dried tomatoes, balsamic",19]]]]},
+ {t:"Mains",groups:[
+  ["Mains",[["Rigatoni alla Vodka","Creamy vodka-tomato sauce, parmigiano, basil",22],["Spicy Shrimp Pappardelle","Shrimp in a gently spiced gochujang sauce, chives",23],["Grilled Salmon","Teriyaki reduction, asparagus, butter and black pepper",33],["Wild Seabass","Lemon-butter and white wine sauce, tomato confit",39],["Grilled Chicken","Mushroom and thyme sauce, baby potatoes, fine beans",23],["Chicken Schnitzel","Crispy chicken Milanese, sucrine, caesar dressing",26],["Wagyu Burger","Wagyu beef, umami sauce, melted cheese, potato bun",23],["Steak Frites","Seared Angus tenderloin, umami butter, crisp fries",38],["Wagyu Steak 220g","Wagyu filet, asparagus, baby potatoes, pepper sauce",55],["Wagyu Ribeye 350g","Wagyu ribeye, maître d'hôtel butter, pepper sauce",63]]]]},
+ {t:"Desserts",groups:[
+  ["Desserts",[["Tiramisù","",12],["Tarte aux Pommes","",15],["Pain Perdu","",16],["Chocolate Soufflé","",17]]],
+  ["Sorbets & ice cream · per scoop",[["Blackberry","",3],["Pecan","",3],["Lime","",3],["Chocolate","",3],["Vanilla","",3]],"small"]]},
+ {t:"Digestifs",groups:[
+  ["Digestifs",[["Limoncello","Italian lemon liqueur",7],["Port LBV","Late bottled vintage",9],["Bas-Armagnac","Aged 12 years",14],["Calvados","Aged 10 years",19],["Grappa","Riserva",12]]]]},
+];
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const tabs=document.getElementById("tabs"), panel=document.getElementById("panel");
+function show(i){
+  [...tabs.children].forEach((b,j)=>b.setAttribute("aria-selected", i===j));
+  const s=M[i];
+  panel.innerHTML=`<div class="title">${s.t.toUpperCase()}</div><span class="orn"></span>`+s.groups.map(([g,items,cls])=>
+    `<h2>${esc(g.toUpperCase())}</h2><div class="grid ${cls||""}">`+items.map(([n,d,p],k)=>
+      `<div class="card${items.length%2 && k===items.length-1 && !cls?" wide":""}"><div class="top"><b>${esc(n)}</b><span>${p}</span></div>${d?`<p>${esc(d)}</p>`:""}</div>`).join("")+`</div>`).join("");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+tabs.innerHTML=M.map((s,i)=>`<button type="button" role="tab" aria-selected="false">${s.t}</button>`).join("");
+[...tabs.children].forEach((b,i)=>b.addEventListener("click",()=>show(i)));
+show(0);
+</script>
+</body>
+</html>
