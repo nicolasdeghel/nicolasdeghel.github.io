@@ -11,21 +11,12 @@
 <style>
 body{margin:0}
 :root{
-  --bg:#EEF1EC; --surface:#FAFBF8; --ink:#16211C; --muted:#56635C; --line:#CDD5CE;
-  --copper:#B4602A; --leaf:#2E6A4E; --screen:#1B2621; --screen-ink:#E6EEE8;
+  --bg:#0A0A0B; --surface:#131315; --ink:#F3F1EF; --muted:#A3A0A0; --line:#262428;
+  --copper:#E3262F; --leaf:#E3262F; --screen:#18171A; --screen-ink:#ECE8E6;
   --display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --body:"IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
   --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#111814; --surface:#18211C; --ink:#E4EBE6; --muted:#9BA9A1; --line:#2C3832;
-    --copper:#E08A52; --leaf:#6BBF94; --screen:#0B100D; --screen-ink:#DDE7E1; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#111814; --surface:#18211C; --ink:#E4EBE6; --muted:#9BA9A1; --line:#2C3832;
-  --copper:#E08A52; --leaf:#6BBF94; --screen:#0B100D; --screen-ink:#DDE7E1; color-scheme:dark;
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);padding-inline:20px;padding-block:0}
@@ -78,10 +69,10 @@ section{padding-block:56px;border-top:1px solid var(--line)}
 /* workout sketch */
 .wk-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
 .wk-top b{font:700 18px/1 var(--display)}
-.pill{font:500 11px/1 var(--mono);padding:6px 9px;border-radius:999px;background:#E08A52;color:#1B1208}
+.pill{font:500 11px/1 var(--mono);padding:6px 9px;border-radius:999px;background:var(--copper);color:#fff}
 .wk-row{display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.09);font-size:13px}
 .wk-row span:not(:first-child){font-family:var(--mono);color:rgba(230,238,232,.7);font-variant-numeric:tabular-nums}
-.wk-row .done{color:#6BBF94}
+.wk-row .done{color:#FF5A61}
 
 /* phone menu sketch */
 .phone{width:230px;background:var(--screen);border-radius:30px;padding:12px;box-shadow:0 18px 40px -22px rgba(0,0,0,.45)}
@@ -119,8 +110,25 @@ section{padding-block:56px;border-top:1px solid var(--line)}
 .links .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .links code{font:500 15px/1.3 var(--mono);color:var(--ink);word-break:break-all}
 .copy{font:500 12px/1 var(--mono);background:transparent;color:var(--copper);border:1px solid var(--copper);border-radius:999px;padding:7px 11px;cursor:pointer}
-.copy:hover{background:var(--copper);color:var(--surface)}
+.copy:hover{background:var(--copper);color:#fff}
 footer{padding-block:28px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:56px}
+
+
+/* top accent + buttons */
+body{border-top:3px solid var(--copper)}
+.intro h1{letter-spacing:-.025em}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{font:600 14px/1 var(--body);text-decoration:none;padding:12px 16px;border-radius:8px;border:1px solid var(--copper);color:#fff;background:var(--copper)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost:hover{border-color:var(--copper)}
+section .sec-head h2::after{content:"";display:block;width:40px;height:3px;background:var(--copper);margin-top:12px}
+/* live demo phones */
+.live{width:250px;height:500px;background:#000;border:1px solid #2C2A2E;border-radius:34px;padding:10px;box-shadow:0 30px 60px -30px rgba(227,38,47,.35)}
+.live iframe{width:100%;height:100%;border:0;border-radius:24px;background:#fff;display:block}
+.live-wrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+.live-wrap a{font:500 12px/1 var(--mono);color:var(--muted)}
+.live-wrap a:hover{color:var(--copper)}
 
 @media (max-width:820px){
   .intro,.case,.about{grid-template-columns:1fr;gap:28px}
@@ -133,8 +141,8 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:13px;border-top:1px 
   .gauges{grid-template-columns:1fr 1fr}
 }
 @media (prefers-reduced-motion:no-preference){
-  .browser,.phone{transition:transform .35s ease}
-  .case:hover .browser,.case:hover .phone{transform:translateY(-4px)}
+  .browser,.phone,.live{transition:transform .35s ease}
+  .case:hover .browser,.case:hover .phone,.case:hover .live{transform:translateY(-4px)}
 }
 </style>
 
@@ -155,6 +163,7 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:13px;border-top:1px 
       <p class="label">Web developer · CCE engineering student</p>
       <h1>I build websites that work on the phone <span>first</span>.</h1>
       <p>Responsive sites and digital menus for small businesses, full-stack web apps, and the Python backends behind IoT sensor data. Based in Lebanon, working remotely in English and Arabic.</p>
+      <div class="btns"><a class="btn" href="#work">See my work</a><a class="btn ghost" href="#contact">Contact me</a></div>
     </div>
     <div class="status">
       <div><span class="label">Availability</span><b><span class="dot"></span>Part-time, remote, freelance</b></div>
@@ -166,33 +175,47 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:13px;border-top:1px 
   <section id="work">
     <div class="sec-head">
       <h2>Selected work</h2>
-      <span class="label">3 projects · 2026</span>
+      <span class="label">4 projects · 2026</span>
     </div>
 
     <article class="case">
       <div>
-        <span class="label">Freelance · Mobile-first web</span>
-        <h3>Digital menus &amp; websites for local businesses</h3>
-        <p>Restaurants and shops in Lebanon need menus customers can open from a QR code on a table, on any phone, with no app to install.</p>
+        <span class="label">Freelance · Digital menu · Live demo</span>
+        <h3>Bistro &amp; bar QR menu</h3>
+        <p>A dark, elegant menu for a French-style kitchen and bar that guests open from a QR code at the table, on any phone, with no app to install.</p>
         <ul>
-          <li>Category tabs so a long menu stays easy to scan on a small screen</li>
-          <li>Clear hierarchy: dish name, short description, price aligned in one column</li>
-          <li>Hand-built in HTML, CSS and JavaScript, deployed and handed over ready to update</li>
+          <li>Sticky category bar that follows you as you scroll through 10 sections</li>
+          <li>One-tap price switch between US dollars and Lebanese lira</li>
+          <li>Highlighted house signatures and a separate drinks section</li>
         </ul>
-        <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive layout</span></div>
+        <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Mobile-first</span></div>
+        <div class="btns"><a class="btn" href="demos/bistro/" target="_blank" rel="noopener">Open live demo</a></div>
       </div>
       <div class="visual">
-        <div class="phone" aria-label="Sketch of a mobile digital menu layout">
-          <div class="scr">
-            <div class="menu-h">Menu</div>
-            <div class="menu-sub">Scan · browse · order</div>
-            <div class="tabs"><span>Mains</span><span>Mezze</span><span>Drinks</span></div>
-            <div class="item"><div>Chicken shawarma plate<small>Garlic sauce, pickles, fries</small></div><b>$9</b></div>
-            <div class="item"><div>Mixed grill<small>Kafta, taouk, lamb</small></div><b>$14</b></div>
-            <div class="item"><div>Fattoush<small>Sumac, pomegranate molasses</small></div><b>$6</b></div>
-            <div class="item"><div>Manakish zaatar<small>Fresh from the oven</small></div><b>$3</b></div>
-            <div class="item"><div>Fresh lemonade<small>With mint</small></div><b>$3</b></div>
-          </div>
+        <div class="live-wrap">
+          <div class="live"><iframe src="demos/bistro/" title="Bistro menu demo" loading="lazy"></iframe></div>
+          <a href="demos/bistro/" target="_blank" rel="noopener">Scroll inside the phone ↑</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div>
+        <span class="label">Freelance · Digital menu · Live demo</span>
+        <h3>All-day eatery menu</h3>
+        <p>A light, minimal menu for a bar, deli and kitchen, organised into tabs so a long menu stays short on a small screen.</p>
+        <ul>
+          <li>Tabbed sections: to start, salads, mains, desserts, digestifs</li>
+          <li>Card layout with dish, short description and price at a glance</li>
+          <li>Built to be updated in minutes when prices or dishes change</li>
+        </ul>
+        <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive layout</span></div>
+        <div class="btns"><a class="btn" href="demos/eatery/" target="_blank" rel="noopener">Open live demo</a></div>
+      </div>
+      <div class="visual">
+        <div class="live-wrap">
+          <div class="live"><iframe src="demos/eatery/" title="Eatery menu demo" loading="lazy"></iframe></div>
+          <a href="demos/eatery/" target="_blank" rel="noopener">Tap the tabs inside the phone ↑</a>
         </div>
       </div>
     </article>
@@ -249,16 +272,16 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:13px;border-top:1px 
                 <g stroke="rgba(255,255,255,.08)" stroke-width="1" fill="none">
                   <line x1="0" y1="22" x2="300" y2="22"/><line x1="0" y1="45" x2="300" y2="45"/><line x1="0" y1="68" x2="300" y2="68"/>
                 </g>
-                <path d="M0 30 L30 34 L60 40 L90 47 L120 53 L150 58 L180 62 L210 30 L240 33 L270 38 L300 42 L300 90 L0 90 Z" fill="rgba(107,191,148,.16)"/>
-                <path d="M0 30 L30 34 L60 40 L90 47 L120 53 L150 58 L180 62 L210 30 L240 33 L270 38 L300 42" fill="none" stroke="#6BBF94" stroke-width="2"/>
-                <circle cx="300" cy="42" r="3.5" fill="#6BBF94"/>
+                <path d="M0 30 L30 34 L60 40 L90 47 L120 53 L150 58 L180 62 L210 30 L240 33 L270 38 L300 42 L300 90 L0 90 Z" fill="rgba(227,38,47,.18)"/>
+                <path d="M0 30 L30 34 L60 40 L90 47 L120 53 L150 58 L180 62 L210 30 L240 33 L270 38 L300 42" fill="none" stroke="#E3262F" stroke-width="2"/>
+                <circle cx="300" cy="42" r="3.5" fill="#E3262F"/>
               </svg>
             </div>
           </div>
         </div>
       </div>
     </article>
-    <p class="note">Interface sketches above are simplified illustrations of each project's layout.</p>
+    <p class="note">Menu demos are anonymised versions of client work: names, logos, locations and contact details have been removed. Other visuals are simplified sketches.</p>
   </section>
 
   <section id="about">
@@ -266,7 +289,7 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:13px;border-top:1px 
     <div class="about">
       <div>
         <p>I'm a Computer and Communication Engineering student at Notre Dame University – Louaize. I like building things end to end: the layout a customer taps on, the API behind it, and sometimes the circuit that produces the data.</p>
-        <p>I've also tutored university students through technical projects, which taught me to explain complex work in clear steps. Outside of code I'm training as a Lebanese Red Cross first responder.</p>
+        <p>I've also tutored university students through technical projects, which taught me to explain complex work in clear steps. Outside of code I volunteer with the Lebanese Red Cross as an EMT trainee.</p>
       </div>
       <dl class="skills">
         <div><dt>Front-end</dt><dd>HTML, CSS, JavaScript, responsive and mobile-first layout</dd></div>
@@ -284,7 +307,7 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:13px;border-top:1px 
         <span class="label">Email</span>
         <div class="row"><code id="email">nsdeghel@gmail.com</code><button class="copy" id="copy-email" type="button">Copy</button></div>
         <span class="label">LinkedIn</span>
-        <div class="row"><a href="https://www.linkedin.com/in/nicolas-al-deghel-96a77a342"><code>linkedin.com/in/nicolas-al-deghel</code></a></div>
+        <div class="row"><a href="https://www.linkedin.com/in/nicolasaldeghel"><code>linkedin.com/in/nicolasaldeghel</code></a></div>
       </div>
     </div>
   </section>
