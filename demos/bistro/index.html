@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Bistro Menu — Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{
+  --bg:#07111f; --bg2:#0b1830; --card:rgba(255,255,255,.035); --ink:#e9eef7; --muted:#9aa8bf;
+  --line:rgba(160,190,230,.18); --accent:#7fb2ff; --accent-ink:#06101e;
+  --display:"Fraunces", Georgia, serif; --body:"Source Serif 4", Georgia, serif; --mono:"IBM Plex Mono", ui-monospace, monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:radial-gradient(1200px 600px at 80% -10%, #12284a 0%, transparent 60%), var(--bg);color:var(--ink);font:400 16px/1.55 var(--body);min-height:100vh}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.demo-flag{position:sticky;top:0;z-index:20;background:#c8102e;color:#fff;text-align:center;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:8px 10px}
+.demo-flag a{color:#fff}
+header{padding:44px 0 26px}
+.kicker{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+h1{font:600 clamp(44px,9vw,64px)/.95 var(--display);margin:14px 0 4px;letter-spacing:-.01em}
+h1 em{display:block;font-style:italic;font-weight:500;color:var(--accent)}
+.tagline{font-style:italic;color:var(--muted);max-width:28em;margin:16px 0 18px}
+.cur{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.cur button{font:500 12px/1 var(--mono);background:none;border:0;color:var(--muted);padding:7px 12px;border-radius:999px;cursor:pointer}
+.cur button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.cur-note{font:400 11px/1.5 var(--mono);color:var(--muted);margin-top:10px}
+nav.cats{position:sticky;top:27px;z-index:10;background:rgba(7,17,31,.92);backdrop-filter:blur(8px);border-block:1px solid var(--line);margin:0 -20px;padding:10px 20px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav.cats::-webkit-scrollbar{display:none}
+nav.cats a{flex:none;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:8px 12px}
+nav.cats a.on{color:var(--accent-ink);background:var(--accent);border-color:var(--accent)}
+section{padding-top:34px}
+.sec-h{display:flex;align-items:baseline;gap:14px;margin-bottom:16px}
+.sec-h h2{font:600 28px/1.1 var(--display);margin:0}
+.sec-h .rule{flex:1;height:1px;background:var(--line)}
+.sec-h small{font:500 10px/1 var(--mono);letter-spacing:.14em;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+.item{padding:12px 0;border-bottom:1px dashed var(--line)}
+.item .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.item b{font:600 17px/1.25 var(--display)}
+.item .p{font:500 14px/1 var(--mono);color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
+.item p{margin:6px 0 0;font-size:14px;color:var(--muted)}
+.item .add{font:400 12px/1.4 var(--mono);color:var(--accent);margin-top:6px}
+.item.sig{grid-column:1/-1;border:1px solid var(--accent);border-radius:10px;padding:14px 16px;background:var(--card)}
+.item.sig::before{content:"House signature";display:block;font:500 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.bar-h{text-align:center;margin:56px 0 0;font:500 11px/1 var(--mono);letter-spacing:.3em;color:var(--muted)}
+.bar-h b{display:block;font:500 italic 40px/1 var(--display);letter-spacing:0;color:var(--ink);margin-top:8px}
+.sub{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:22px 0 4px;grid-column:1/-1}
+.drink{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.drink span:last-child{font:500 13px/1.4 var(--mono);color:var(--accent);white-space:nowrap}
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);text-align:center;font:500 11px/1.8 var(--mono);letter-spacing:.12em;color:var(--muted)}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demo-flag">Demo menu · fictional restaurant</div>
+<div class="wrap">
+  <header>
+    <div class="kicker">Kitchen &amp; bar</div>
+    <h1>Bistro<em>Menu</em></h1>
+    <p class="tagline">French bistro classics with a Mediterranean hand on the seasoning, built to share, plate by plate.</p>
+    <div class="cur" role="group" aria-label="Currency">
+      <button type="button" data-cur="usd" aria-pressed="true">USD</button>
+      <button type="button" data-cur="lbp" aria-pressed="false">L.L.</button>
+    </div>
+    <div class="cur-note">Prices in US dollars or Lebanese lira at ~89,500 L.L. per $1.</div>
+  </header>
+  <nav class="cats" id="cats" aria-label="Menu sections"></nav>
+  <main id="menu"></main>
+  <footer>Kitchen &amp; bar · Prices in USD or L.L.<br>Demo menu designed and built by Nicolas Al Deghel</footer>
+</div>
+<script>
+const MENU = [
+ {id:"cheese",t:"Cheese & butter",s:"HOUSE-MADE",items:[
+  {n:"House Butter Trio",p:8,d:"House-churned butter three ways: fleur de sel, herb maître d'hôtel and orange honey, with jambon blanc.",sig:1},
+  {n:"Camembert au Four",p:20,d:"A whole Camembert baked until molten, with Calvados honey, toasted walnuts, cornichons and baby potatoes."},
+  {n:"Gratin Dauphinois",p:7,d:"Thin-sliced potatoes baked slowly in garlic cream and French cheeses until golden."}]},
+ {id:"share",t:"Duck & shareables",s:"BUILT TO SHARE",items:[
+  {n:"Trois Petits Canards",p:18,d:"Three mini duck confit burgers, each dressed differently: creamy, herby and sweet-savoury."},
+  {n:"Lamb Bao",p:6,unit:" / pc",d:"Steamed bao with seven-hour lamb, garlic honey mayo, cornichons, mint and a red wine reduction."},
+  {n:"The Sharing Board",p:35,d:"Cured meats and artisanal cheeses with house condiments, seasonal jam and warm bread.",add:"Add a bottle of house wine: $50",sig:1},
+  {n:"Duck Fat Popcorn",free:1,d:"Warm popcorn tossed in duck fat, sea salt and herbs, on the house with every drink."}]},
+ {id:"salads",t:"Salads",s:"CRISP & SEASONAL",items:[
+  {n:"Smoked Duck Salad",p:21,d:"Smoked duck breast, mixed greens, seasonal fruit, goat cheese, walnuts and a sesame-honey reduction."},
+  {n:"Salade Sarladaise",p:10,d:"Warm duck fat potatoes, garlic confit, cornichons and shallots in Dijon vinaigrette."},
+  {n:"House Salad",p:18,d:"French cheeses and charcuterie over mixed greens with cornichons, walnuts and Dijon vinaigrette.",sig:1}]},
+ {id:"mains",t:"Mains",s:"FROM THE KITCHEN",items:[
+  {n:"Filet Mignon Maison",p:28,d:"Beef tenderloin, crispy baby potatoes and salade verte with the house Diane sauce.",sig:1},
+  {n:"Cordon Bleu Roulé",p:24,d:"Chicken roulade with jambon blanc and Tomme de Savoie, over pommes purée with green beans."},
+  {n:"Duck Confit Waffle",p:35,d:"A golden waffle with duck confit, goat cheese salad and an orange liqueur sauce."},
+  {n:"Poulet Maison",p:18,d:"Chicken breast, crispy baby potatoes and salade verte with the house Diane sauce."}]},
+ {id:"diane",t:"Diane specialties",s:"THE HOUSE SAUCE",items:[
+  {n:"Steak Diane",p:16,d:"Tenderloin steak with melted Emmental under the signature Diane sauce."},
+  {n:"Poulet Diane",p:14,d:"Grilled chicken breast with melted Emmental under the signature Diane sauce."}]},
+ {id:"sandwiches",t:"Sandwiches",s:"BISTRO FARE",items:[
+  {n:"Bistro Dog",p:14,d:"Smoked sausage, Dijon mayo, Emmental, caramelised onions, cornichons and salted caramel popcorn."},
+  {n:"Jambon Beurre",p:12,d:"Artisanal ham, house butter and cornichons. French simplicity, done right."},
+  {n:"Sandwich Tartiflette",p:7,d:"Crispy potatoes, melted cheese and caramelised onions.",add:"Add jambon: $3"},
+  {n:"Brie Not to Brie",p:10,d:"Warm brie, tomato jam, walnuts and mixed greens with Dijon."}]},
+ {id:"dessert",t:"Dessert",s:"TO FINISH",items:[
+  {n:"Crêpes Arak Suzette",p:8,d:"Classic crêpes suzette with a Levantine touch of arak."},
+  {n:"Dessert of the Week",p:10,d:"A weekly creation from the pastry kitchen. Ask your server."}]},
+];
+const BAR = [
+ {id:"cocktails",t:"Cocktails",s:"HAND-SHAKEN",groups:[
+  ["Spritz & apéritifs",[["Lillet Spritz",12],["Aperol Spritz",11],["Kir Royal",10],["French 75",11]]],
+  ["Sours & mules",[["Hemingway Daiquiri",12],["Whiskey Sour",10],["Margarita",8],["Bee's Knees",8],["Gin Basil",8],["Mule",8]]],
+  ["The classics",[["Old Fashioned",10],["Boulevardier",11],["Vieux Carré",14],["Dry Martini",9],["Manhattan",11],["Negroni",9]]]]},
+ {id:"wine",t:"Whiskey & wine",s:"BY THE POUR",groups:[
+  ["Whiskey",[["Irish whiskey",7],["Blended Scotch",10],["Bourbon",9],["Single malt","12 – 25"]]],
+  ["Wine · glass / bottle",[["House red or white","6 / 25"],["Sparkling","8 / 35"],["House label","8 / 35"],["Reserve red (bottle)",45]]]]},
+ {id:"soft",t:"Beer & soft",s:"COLD & ZERO-PROOF",groups:[
+  ["Beer",[["Draft pale ale",7],["Belgian tripel",9],["Local lager",5]]],
+  ["Non-alcoholic",[["Basil Lemonade",5],["Virgin Mule",5],["Fresh Juice",5],["Espresso",2],["Sparkling Water",3],["Soft Drinks",2]]]]},
+];
+const RATE = 89500; let cur = "usd";
+const one = n => cur==="usd" ? "$"+n : (Number(n)*RATE/1000).toLocaleString("en-US")+"K";
+const fmt = v => String(v).replace(/\d+(\.\d+)?/g, one);
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+function render(){
+  let h = "";
+  for (const s of MENU){
+    h += `<section id="${s.id}"><div class="sec-h"><h2>${esc(s.t)}</h2><span class="rule"></span><small>${s.s}</small></div><div class="grid">`;
+    for (const i of s.items){
+      h += `<div class="item${i.sig?" sig":""}"><div class="top"><b>${esc(i.n)}</b><span class="p">${i.free?"ON THE HOUSE":fmt(i.p)+(i.unit||"")}</span></div><p>${esc(i.d)}</p>${i.add?`<div class="add">${esc(i.add)}</div>`:""}</div>`;
+    }
+    h += `</div></section>`;
+  }
+  h += `<div class="bar-h">THE BAR<b>Drinks</b></div>`;
+  for (const s of BAR){
+    h += `<section id="${s.id}"><div class="sec-h"><h2>${esc(s.t)}</h2><span class="rule"></span><small>${s.s}</small></div><div class="grid">`;
+    for (const [g, list] of s.groups){
+      h += `<div><div class="sub">${esc(g)}</div>` + list.map(([n,p])=>`<div class="drink"><span>${esc(n)}</span><span>${fmt(p)}</span></div>`).join("") + `</div>`;
+    }
+    h += `</div></section>`;
+  }
+  document.getElementById("menu").innerHTML = h;
+}
+document.getElementById("cats").innerHTML = [...MENU, ...BAR].map(s=>`<a href="#${s.id}">${esc(s.t)}</a>`).join("");
+document.querySelectorAll(".cur button").forEach(b=>b.addEventListener("click",()=>{
+  cur=b.dataset.cur; document.querySelectorAll(".cur button").forEach(x=>x.setAttribute("aria-pressed", x===b)); render();
+}));
+render();
+const links=[...document.querySelectorAll("#cats a")];
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle("on",a.hash==="#"+e.target.id)); const on=links.find(a=>a.hash==="#"+e.target.id); on&&on.scrollIntoView({inline:"center",block:"nearest"});}}),{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("main section").forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
