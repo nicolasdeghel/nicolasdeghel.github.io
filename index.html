@@ -74,18 +74,6 @@ section{padding-block:56px;border-top:1px solid var(--line)}
 .wk-row span:not(:first-child){font-family:var(--mono);color:rgba(230,238,232,.7);font-variant-numeric:tabular-nums}
 .wk-row .done{color:#FF5A61}
 
-/* phone menu sketch */
-.phone{width:230px;background:var(--screen);border-radius:30px;padding:12px;box-shadow:0 18px 40px -22px rgba(0,0,0,.45)}
-.phone .scr{background:#F6F1E8;color:#2A1D14;border-radius:20px;padding:16px 14px;min-height:400px}
-.menu-h{font:700 20px/1.05 var(--display);margin-bottom:4px}
-.menu-sub{font:400 11px/1 var(--mono);color:#8A6C55;margin-bottom:14px}
-.tabs{display:flex;gap:6px;margin-bottom:12px}
-.tabs span{font:500 10px/1 var(--mono);padding:6px 8px;border-radius:999px;border:1px solid #D8C9B6}
-.tabs span:first-child{background:#2A1D14;color:#F6F1E8;border-color:#2A1D14}
-.item{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid #E6DBCB;font-size:12px}
-.item small{display:block;color:#8A6C55;font-size:10px;margin-top:2px}
-.item b{font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
-
 /* sensor dashboard sketch */
 .gauges{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
 .g{background:rgba(255,255,255,.05);border-radius:8px;padding:10px}
@@ -129,6 +117,19 @@ section .sec-head h2::after{content:"";display:block;width:40px;height:3px;backg
 .live-wrap{display:flex;flex-direction:column;align-items:center;gap:12px}
 .live-wrap a{font:500 12px/1 var(--mono);color:var(--muted)}
 .live-wrap a:hover{color:var(--copper)}
+/* experience timeline */
+.timeline{display:grid;gap:0}
+.job{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+.job:first-child{border-top:0;padding-top:0}
+.job .when{font:500 12px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.job .when b{display:block;color:var(--copper);font-weight:500}
+.job h3{font-size:21px;font-weight:700;margin:0 0 4px}
+.job .org{color:var(--muted);font-size:15px;margin-bottom:8px}
+.job p{margin:0;max-width:40em}
+.certs{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.certs span{font:500 12px/1.3 var(--mono);padding:8px 12px;border:1px solid var(--line);border-left:3px solid var(--copper);border-radius:6px}
+.links a.plain{text-decoration:none}
+@media (max-width:620px){.job{grid-template-columns:1fr;gap:6px}}
 
 @media (max-width:820px){
   .intro,.case,.about{grid-template-columns:1fr;gap:28px}
@@ -153,6 +154,7 @@ section .sec-head h2::after{content:"";display:block;width:40px;height:3px;backg
     <div class="mark">Nicolas Al Deghel</div>
     <nav>
       <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -163,12 +165,13 @@ section .sec-head h2::after{content:"";display:block;width:40px;height:3px;backg
       <p class="label">Web developer · CCE engineering student</p>
       <h1>I build websites that work on the phone <span>first</span>.</h1>
       <p>Responsive sites and digital menus for small businesses, full-stack web apps, and the Python backends behind IoT sensor data. Based in Lebanon, working remotely in English and Arabic.</p>
-      <div class="btns"><a class="btn" href="#work">See my work</a><a class="btn ghost" href="#contact">Contact me</a></div>
+      <div class="btns"><a class="btn" href="#work">See my work</a><a class="btn ghost" href="cv/Nicolas_Al_Deghel.pdf" target="_blank" rel="noopener">Download CV</a><a class="btn ghost" href="#contact">Contact me</a></div>
     </div>
     <div class="status">
       <div><span class="label">Availability</span><b><span class="dot"></span>Part-time, remote, freelance</b></div>
       <div><span class="label">Languages</span><b>Arabic (native) · English (fluent)</b></div>
       <div><span class="label">Studying</span><b>B.E. Computer &amp; Communication Engineering, NDU, class of 2029</b></div>
+      <div><span class="label">Based in</span><b>Koura, North Lebanon</b></div>
     </div>
   </div>
 
@@ -248,15 +251,15 @@ section .sec-head h2::after{content:"";display:block;width:40px;height:3px;backg
 
     <article class="case">
       <div>
-        <span class="label">Greenovators LB · Co-founder &amp; technical lead</span>
+        <span class="label">Greenovators LB · Co-founder &amp; technical lead · 2026, on hold</span>
         <h3>AI + IoT farm monitoring</h3>
-        <p>An agritech venture that took <strong>2nd place at the AUF Regional Hackathon</strong>. Sensors in the field send readings; the software turns them into something a farmer can act on.</p>
+        <p>An agritech startup I co-founded that took <strong>2nd place at the AUF Regional Hackathon</strong>. Sensors in the field send readings; the software turns them into something a farmer can act on.</p>
         <ul>
           <li>Low-power sensor arrays for soil moisture, temperature and nutrients</li>
-          <li>Python backend and data pipeline from raw readings to predictive insights</li>
-          <li>Led brand identity and the Lean Business Model Canvas in a pre-accelerator program</li>
+          <li>Python backend and machine learning models that turn raw readings into predictive insights</li>
+          <li>Completed a pre-accelerator program; wrote the Lean Business Model Canvas and led market research</li>
         </ul>
-        <div class="stack"><span>Python</span><span>IoT</span><span>Data pipeline</span><span>Circuit prototyping</span></div>
+        <div class="stack"><span>Python</span><span>Machine learning</span><span>IoT</span><span>Circuit prototyping</span></div>
       </div>
       <div class="visual">
         <div class="browser" aria-label="Sketch of the sensor dashboard">
@@ -284,18 +287,41 @@ section .sec-head h2::after{content:"";display:block;width:40px;height:3px;backg
     <p class="note">Menu demos are anonymised versions of client work: names, logos, locations and contact details have been removed. Other visuals are simplified sketches.</p>
   </section>
 
+  <section id="experience">
+    <div class="sec-head">
+      <h2>Experience</h2>
+      <span class="label">2025 – today</span>
+    </div>
+    <div class="timeline">
+      <div class="job"><div class="when"><b>Sep 2026 – Present</b>Remote</div><div><h3>Web Developer</h3><div class="org">Freelance</div><p>Responsive, mobile-first websites and digital menus for local shops and restaurants, from design to deployment.</p></div></div>
+      <div class="job"><div class="when"><b>Sep 2026 – Present</b>NDU, Barsa</div><div><h3>Secretary</h3><div class="org">IEEE NDU-NLC Student Branch</div><p>Official records and meeting minutes, communication between the board and members, and launch of the branch's LinkedIn page.</p></div></div>
+      <div class="job"><div class="when"><b>Jul 2026 – Present</b>Unit 503</div><div><h3>EMT Trainee (Volunteer)</h3><div class="org">Lebanese Red Cross</div><p>Passed both First Responder exams in October 2026; now training toward full EMT certification.</p></div></div>
+      <div class="job"><div class="when"><b>Feb 2026 – On hold</b>Agritech</div><div><h3>Co-Founder &amp; Technical Lead</h3><div class="org">Greenovators LB</div><p>IoT sensor prototypes, Python backend and ML models for farmers. 2nd place at the AUF Regional Hackathon.</p></div></div>
+      <div class="job"><div class="when"><b>Jun – Sep 2026</b>Seasonal</div><div><h3>Lifeguard &amp; Swimming Coach</h3><div class="org">BodyBalance, Amioun</div><p>Pool safety for members and summer camps; coached swimming for children aged 4–10.</p></div></div>
+      <div class="job"><div class="when"><b>Oct 2025 – Jan 2026</b>Remote</div><div><h3>Technical Tutor</h3><div class="org">Our Easy Game Tutoring LLC</div><p>Guided engineering students through technical projects, assignments and presentations.</p></div></div>
+    </div>
+    <div class="certs">
+      <span>Red Cross First Responder · 2026</span>
+      <span>AUF Regional Hackathon · 2nd place · 2026</span>
+      <span>Full-Stack Web Developer Path · 2025</span>
+      <span>Advanced Excel Bootcamp · 2024</span>
+    </div>
+  </section>
+
   <section id="about">
     <div class="sec-head"><h2>About</h2></div>
     <div class="about">
       <div>
         <p>I'm a Computer and Communication Engineering student at Notre Dame University – Louaize. I like building things end to end: the layout a customer taps on, the API behind it, and sometimes the circuit that produces the data.</p>
-        <p>I've also tutored university students through technical projects, which taught me to explain complex work in clear steps. Outside of code I volunteer with the Lebanese Red Cross as an EMT trainee.</p>
+        <p>I've also tutored university students through technical projects, which taught me to explain complex work in clear steps. Outside of code I'm the IEEE student branch Secretary at NDU and volunteer with the Lebanese Red Cross as an EMT trainee.</p>
       </div>
       <dl class="skills">
         <div><dt>Front-end</dt><dd>HTML, CSS, JavaScript, responsive and mobile-first layout</dd></div>
         <div><dt>Back-end</dt><dd>Node.js, Python, REST API design, Google Sheets API</dd></div>
+        <div><dt>Programming</dt><dd>Python, C/C++, JavaScript, MATLAB/Simulink</dd></div>
         <div><dt>Tools</dt><dd>Git &amp; GitHub, Render deployment, Advanced Excel</dd></div>
-        <div><dt>Hardware</dt><dd>IoT sensors, circuit design, C/C++, MATLAB/Simulink</dd></div>
+        <div><dt>Hardware</dt><dd>IoT sensor integration, circuit design and prototyping, firmware fundamentals</dd></div>
+        <div><dt>Languages</dt><dd>Arabic (native), English (fluent)</dd></div>
       </dl>
     </div>
   </section>
@@ -306,8 +332,12 @@ section .sec-head h2::after{content:"";display:block;width:40px;height:3px;backg
       <div class="links">
         <span class="label">Email</span>
         <div class="row"><code id="email">nsdeghel@gmail.com</code><button class="copy" id="copy-email" type="button">Copy</button></div>
+        <span class="label">Phone &amp; WhatsApp</span>
+        <div class="row"><a class="plain" href="tel:+96176693962"><code>+961 76 693 962</code></a><a class="copy" href="https://wa.me/96176693962" target="_blank" rel="noopener" style="text-decoration:none">WhatsApp</a></div>
         <span class="label">LinkedIn</span>
-        <div class="row"><a href="https://www.linkedin.com/in/nicolasaldeghel"><code>linkedin.com/in/nicolasaldeghel</code></a></div>
+        <div class="row"><a href="https://www.linkedin.com/in/nicolasaldeghel" target="_blank" rel="noopener"><code>linkedin.com/in/nicolasaldeghel</code></a></div>
+        <span class="label">CV</span>
+        <div class="row"><a href="cv/Nicolas_Al_Deghel.pdf" target="_blank" rel="noopener"><code>Download PDF</code></a></div>
       </div>
     </div>
   </section>
